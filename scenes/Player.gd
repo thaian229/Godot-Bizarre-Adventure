@@ -12,19 +12,23 @@ var direction = Vector2.ZERO
 var velocity = Vector2.ZERO
 
 func _physics_process(delta):
+	# handle move horizontally
+	self._move_update()
+	# handle move vertically
+	self._jump_update(delta)
+	
+	velocity = move_and_slide(velocity, FLOOR_NORMAL)
+
+func _move_update():
 	# read input to get move direction
 	direction = Vector2.ZERO
+	
 	if Input.is_action_pressed("move_left"):
 		direction.x -= 1
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
 	
 	velocity.x = direction.x * speed
-	
-	# handle jump
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_speed
-	velocity.y += gravity * delta
 	
 	# handle animation
 	if direction.x != 0:
@@ -33,4 +37,11 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite.stop()
 	
-	velocity = move_and_slide(velocity, FLOOR_NORMAL)
+	return
+
+func _jump_update(delta):
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = jump_speed
+	
+	velocity.y += gravity * delta
+	return
