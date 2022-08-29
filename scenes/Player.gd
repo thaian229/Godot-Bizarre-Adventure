@@ -1,9 +1,11 @@
 extends KinematicBody2D
 
 # editable
-export var speed = 40
-export var jump_speed = 100
-export var gravity = 150
+export var speed = 60
+export var jump_speed = -120
+export var gravity = 200
+
+const FLOOR_NORMAL = Vector2(0, -1)
 
 # internal use
 var direction = Vector2.ZERO
@@ -20,8 +22,8 @@ func _physics_process(delta):
 	velocity.x = direction.x * speed
 	
 	# handle jump
-	if Input.is_action_just_pressed("jump"):
-		velocity.y = -jump_speed
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = jump_speed
 	velocity.y += gravity * delta
 	
 	# handle animation
@@ -31,4 +33,4 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite.stop()
 	
-	velocity = move_and_slide(velocity)
+	velocity = move_and_slide(velocity, FLOOR_NORMAL)
