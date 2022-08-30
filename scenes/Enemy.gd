@@ -64,4 +64,3 @@ func dead() -> void:
 	emit_signal("die")
 	# schedule destroy
 	death_timer.start()
-

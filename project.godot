@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Bizarre Adventure"
-run/main_scene="res://scenes/StageOne.tscn"
+run/main_scene="res://scenes/TitleScene.tscn"
 config/icon="res://icon.png"
 
 [display]

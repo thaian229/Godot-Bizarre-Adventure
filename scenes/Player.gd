@@ -94,4 +94,3 @@ func _handle_attack() -> void:
 		slash.set_direction(animation.flip_h)
 		slash.position = muzzle.global_position
 		get_tree().root.add_child(slash)
-

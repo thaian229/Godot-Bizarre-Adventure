@@ -43,4 +43,3 @@ func _on_Slash_body_entered(body: Node):
 func set_direction(is_flipped: bool = false) -> void:
 	_flipped = is_flipped
 	return
-
