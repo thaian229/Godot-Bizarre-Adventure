@@ -10,6 +10,8 @@ export(int, 0, 500) var gravity := 200
 
 export(PackedScene) var slash_prefab = preload("res://scenes/Slash.tscn")
 
+var is_dead := false
+
 # private use
 var _direction := Vector2.ZERO
 var _velocity := Vector2.ZERO
@@ -18,14 +20,27 @@ var _attacking := false
 # children
 onready var animation := $AnimatedSprite as AnimatedSprite
 onready var muzzle := $ProjectilePosition2D as Position2D
+onready var collider := $CollisionShape2D as CollisionShape2D
+onready var dead_timer := $DeadTimer as Timer
 
 func _physics_process(delta: float):
+	# if dead, ignore
+	if self.is_dead:
+		return
+	
 	# handle move horizontally and muzzle position
 	self._move_update()
 	# handle move vertically
 	self._jump_update(delta)
 	
 	_velocity = move_and_slide(_velocity, Vector2.UP)
+	
+	# handle slide:
+	for index in range(get_slide_count()):
+		var body: Node = get_slide_collision(index).collider as Node
+		if body.is_in_group("enemy"):
+			self.dead()
+			return
 	
 	# animation for basic movement
 	self._change_move_animation()
@@ -90,3 +105,20 @@ func _handle_attack() -> void:
 		slash.set_direction(animation.flip_h)
 		slash.position = muzzle.global_position
 		get_tree().root.add_child(slash)
+
+
+func dead() -> void:
+	if is_dead:
+		return
+	is_dead = true
+	_velocity = Vector2.ZERO
+	animation.play("dead")
+	collider.set_deferred("disabled", true)
+	dead_timer.start()
+	pass
+
+
+func _on_DeadTimer_timeout():
+	var err = get_tree().change_scene("res://scenes/TitleScene.tscn")
+	if err != OK:
+		print("cannot load scene")
