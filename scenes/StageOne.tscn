@@ -1,504 +1,168 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://sprites/sheet.png" type="Texture" id=2]
+[ext_resource path="res://sprites/sheet.png" type="Texture" id=3]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 2 )
-region = Rect2( 128, 0, 16, 16 )
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ SubResource( 1 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="TileSet" id=15]
+0/name = "sheet.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 112, 0, 112, 32 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 16, 16 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 6, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 11 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 13 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 6, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 14 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 8, 8 )
+0/z_index = 0
 
 [node name="StageOne" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 160, 88 )
+position = Vector2( 56, 144 )
 
-[node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2( 48, 160 )
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 15 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 5, 65536, 0, 65541, 131072, 0, 65541, 196608, 0, 65541, 262144, 0, 65541, 327680, 0, 65541, 393216, 0, 65541, 393230, 0, 3, 393231, 0, 4, 393232, 0, 4, 393233, 0, 5, 458752, 0, 65541, 458760, 0, 65537, 458761, 0, 1, 458762, 0, 65538, 458766, 1610612736, 5, 458767, 1610612736, 4, 458768, 1610612736, 4, 458769, 1610612736, 3, 524288, 0, 65541, 524295, 0, 65537, 524296, 0, 65540, 524297, 0, 65536, 524298, 1610612736, 65539, 589824, 0, 65541, 589830, 0, 65537, 589831, 0, 65536, 589832, 0, 65540, 589833, 0, 65536, 589834, 0, 65540, 589835, 0, 65538, 655360, 0, 1, 655361, 0, 1, 655362, 0, 1, 655363, 0, 1, 655364, 0, 0, 655365, 0, 1, 655366, 0, 1, 655367, 0, 1, 655368, 0, 2, 655369, 0, 1, 655370, 0, 1, 655371, 0, 1, 655372, 0, 1, 655373, 0, 1, 655374, 0, 1, 655375, 0, 1, 655376, 0, 1, 655377, 0, 1, 655378, 0, 1, 655379, 0, 1, 720896, 0, 65536, 720897, 0, 65536, 720898, 0, 65536, 720899, 0, 65536, 720900, 0, 65536, 720901, 0, 65536, 720902, 0, 65536, 720903, 0, 65536, 720904, 0, 65536, 720905, 0, 65536, 720906, 0, 65536, 720907, 0, 65536, 720908, 0, 65536, 720909, 0, 65536, 720910, 0, 65536, 720911, 0, 65536, 720912, 0, 65536, 720913, 0, 65536, 720914, 0, 65536, 720915, 0, 65536 )
 __meta__ = {
-"_edit_group_": true
+"_edit_lock_": true
 }
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-shape = SubResource( 3 )
-
-[node name="Ground2" type="StaticBody2D" parent="."]
-position = Vector2( 32, 160 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground2"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
-shape = SubResource( 3 )
-
-[node name="Ground31" type="StaticBody2D" parent="."]
-position = Vector2( 32, 144 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground31"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground31"]
-shape = SubResource( 3 )
-
-[node name="Ground32" type="StaticBody2D" parent="."]
-position = Vector2( 32, 128 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground32"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground32"]
-shape = SubResource( 3 )
-
-[node name="Ground33" type="StaticBody2D" parent="."]
-position = Vector2( 32, 112 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground33"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground33"]
-shape = SubResource( 3 )
-
-[node name="Ground34" type="StaticBody2D" parent="."]
-position = Vector2( 32, 96 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground34"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground34"]
-shape = SubResource( 3 )
-
-[node name="Ground35" type="StaticBody2D" parent="."]
-position = Vector2( 32, 80 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground35"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground35"]
-shape = SubResource( 3 )
-
-[node name="Ground36" type="StaticBody2D" parent="."]
-position = Vector2( 48, 80 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground36"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground36"]
-shape = SubResource( 3 )
-
-[node name="Ground37" type="StaticBody2D" parent="."]
-position = Vector2( 64, 80 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground37"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground37"]
-shape = SubResource( 3 )
-
-[node name="Ground3" type="StaticBody2D" parent="."]
-position = Vector2( 64, 160 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground3"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
-shape = SubResource( 3 )
-
-[node name="Ground4" type="StaticBody2D" parent="."]
-position = Vector2( 80, 160 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground4"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground4"]
-shape = SubResource( 3 )
-
-[node name="Ground5" type="StaticBody2D" parent="."]
-position = Vector2( 96, 160 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground5"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground5"]
-shape = SubResource( 3 )
-
-[node name="Ground6" type="StaticBody2D" parent="."]
-position = Vector2( 112, 160 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground6"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground6"]
-shape = SubResource( 3 )
-
-[node name="Ground7" type="StaticBody2D" parent="."]
-position = Vector2( 128, 160 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground7"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground7"]
-shape = SubResource( 3 )
-
-[node name="Ground8" type="StaticBody2D" parent="."]
-position = Vector2( 144, 160 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground8"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground8"]
-shape = SubResource( 3 )
-
-[node name="Ground9" type="StaticBody2D" parent="."]
-position = Vector2( 152, 160 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground9"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground9"]
-shape = SubResource( 3 )
-
-[node name="Ground10" type="StaticBody2D" parent="."]
-position = Vector2( 168, 160 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground10"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground10"]
-shape = SubResource( 3 )
-
-[node name="Ground11" type="StaticBody2D" parent="."]
-position = Vector2( 184, 160 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground11"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground11"]
-shape = SubResource( 3 )
-
-[node name="Ground12" type="StaticBody2D" parent="."]
-position = Vector2( 200, 160 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground12"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground12"]
-shape = SubResource( 3 )
-
-[node name="Ground13" type="StaticBody2D" parent="."]
-position = Vector2( 216, 160 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground13"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground13"]
-shape = SubResource( 3 )
-
-[node name="Ground14" type="StaticBody2D" parent="."]
-position = Vector2( 232, 160 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground14"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground14"]
-shape = SubResource( 3 )
-
-[node name="Ground15" type="StaticBody2D" parent="."]
-position = Vector2( 248, 160 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground15"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground15"]
-shape = SubResource( 3 )
-
-[node name="Ground28" type="StaticBody2D" parent="."]
-position = Vector2( 264, 160 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground28"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground28"]
-shape = SubResource( 3 )
-
-[node name="Ground29" type="StaticBody2D" parent="."]
-position = Vector2( 280, 160 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground29"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground29"]
-shape = SubResource( 3 )
-
-[node name="Ground30" type="StaticBody2D" parent="."]
-position = Vector2( 296, 160 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground30"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground30"]
-shape = SubResource( 3 )
-
-[node name="Ground16" type="StaticBody2D" parent="."]
-position = Vector2( 296, 144 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground16"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground16"]
-shape = SubResource( 3 )
-
-[node name="Ground17" type="StaticBody2D" parent="."]
-position = Vector2( 296, 128 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground17"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground17"]
-shape = SubResource( 3 )
-
-[node name="Ground18" type="StaticBody2D" parent="."]
-position = Vector2( 160, 144 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground18"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground18"]
-shape = SubResource( 3 )
-
-[node name="Ground19" type="StaticBody2D" parent="."]
-position = Vector2( 144, 144 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground19"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground19"]
-shape = SubResource( 3 )
-
-[node name="Ground20" type="StaticBody2D" parent="."]
-position = Vector2( 144, 128 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground20"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground20"]
-shape = SubResource( 3 )
-
-[node name="Ground21" type="StaticBody2D" parent="."]
-position = Vector2( 160, 112 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground21"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground21"]
-shape = SubResource( 3 )
-
-[node name="Ground24" type="StaticBody2D" parent="."]
-position = Vector2( 296, 112 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground24"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground24"]
-shape = SubResource( 3 )
-
-[node name="Ground25" type="StaticBody2D" parent="."]
-position = Vector2( 296, 96 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground25"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground25"]
-shape = SubResource( 3 )
-
-[node name="Ground26" type="StaticBody2D" parent="."]
-position = Vector2( 280, 96 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground26"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground26"]
-shape = SubResource( 3 )
-
-[node name="Ground27" type="StaticBody2D" parent="."]
-position = Vector2( 264, 96 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground27"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground27"]
-shape = SubResource( 3 )
-
-[node name="Ground22" type="StaticBody2D" parent="."]
-position = Vector2( 160, 128 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground22"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground22"]
-shape = SubResource( 3 )
-
-[node name="Ground38" type="StaticBody2D" parent="."]
-position = Vector2( 176, 144 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground38"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground38"]
-shape = SubResource( 3 )
-
-[node name="Ground40" type="StaticBody2D" parent="."]
-position = Vector2( 192, 144 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground40"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground40"]
-shape = SubResource( 3 )
-
-[node name="Ground39" type="StaticBody2D" parent="."]
-position = Vector2( 176, 128 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground39"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground39"]
-shape = SubResource( 3 )
-
-[node name="Ground23" type="StaticBody2D" parent="."]
-position = Vector2( 128, 144 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Ground23"]
-frames = SubResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground23"]
-shape = SubResource( 3 )
