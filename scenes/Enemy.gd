@@ -28,10 +28,6 @@ func _physics_process(delta: float) -> void:
 	# update move
 	self._update_move(delta)
 	_velocity = move_and_slide(_velocity, Vector2.UP)
-	
-	# Prevent player go out of viewport
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
 
 
 func _on_DecayTimer_timeout():

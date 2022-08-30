@@ -113,4 +113,14 @@ shape = SubResource( 4 )
 [node name="ProjectilePosition2D" type="Position2D" parent="."]
 position = Vector2( 20, 5 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+process_mode = 0
+limit_left = 0
+limit_top = -192
+limit_right = 976
+limit_bottom = 192
+smoothing_enabled = true
+editor_draw_limits = true
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

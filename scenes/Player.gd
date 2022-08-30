@@ -18,7 +18,6 @@ var _attacking := false
 # children
 onready var animation := $AnimatedSprite as AnimatedSprite
 onready var muzzle := $ProjectilePosition2D as Position2D
-onready	var screen_size := get_viewport_rect().size
 
 func _physics_process(delta: float):
 	# handle move horizontally and muzzle position
@@ -27,9 +26,6 @@ func _physics_process(delta: float):
 	self._jump_update(delta)
 	
 	_velocity = move_and_slide(_velocity, Vector2.UP)
-	# Prevent player go out of viewport
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
 	
 	# animation for basic movement
 	self._change_move_animation()
