@@ -1,47 +1,54 @@
+class_name Player
 extends KinematicBody2D
+# class for Player entity
+# Player can move, jump, shoot
 
-# editable
-export var speed = 60
-export var jump_speed = -120
-export var gravity = 200
+# Editable
+export(int, 0, 200) var speed := 60
+export(int, 0, 300) var jump_speed := 120
+export(int, 0, 500) var gravity := 200
 
-const FLOOR_NORMAL = Vector2(0, -1)
+# private use
+var _direction := Vector2.ZERO
+var _velocity := Vector2.ZERO
 
-# internal use
-var direction = Vector2.ZERO
-var velocity = Vector2.ZERO
+# children
+onready var animation := $AnimatedSprite as AnimatedSprite
 
-func _physics_process(delta):
+func _physics_process(delta: float):
 	# handle move horizontally
 	self._move_update()
 	# handle move vertically
 	self._jump_update(delta)
 	
-	velocity = move_and_slide(velocity, FLOOR_NORMAL)
+	_velocity = move_and_slide(_velocity, Vector2.UP)
 
-func _move_update():
+
+func _move_update() -> void:
 	# read input to get move direction
-	direction = Vector2.ZERO
+	_direction = Vector2.ZERO
 	
 	if Input.is_action_pressed("move_left"):
-		direction.x -= 1
+		_direction.x -= 1
 	if Input.is_action_pressed("move_right"):
-		direction.x += 1
+		_direction.x += 1
 	
-	velocity.x = direction.x * speed
+	_velocity.x = _direction.x * speed
 	
 	# handle animation
-	if direction.x != 0:
-		$AnimatedSprite.flip_h = direction.x < 0
-		$AnimatedSprite.play("walk")
+	if _direction.x != 0:
+		animation.flip_h = _direction.x < 0
+		animation.play("walk")
 	else:
-		$AnimatedSprite.stop()
+		animation.stop()
 	
 	return
 
-func _jump_update(delta):
+
+func _jump_update(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_speed
+		_velocity.y = -jump_speed
 	
-	velocity.y += gravity * delta
+	_velocity.y += gravity * delta
 	return
+
