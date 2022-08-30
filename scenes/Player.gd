@@ -25,15 +25,14 @@ func _physics_process(delta: float):
 	self._move_update()
 	# handle move vertically
 	self._jump_update(delta)
-	# animation for basic movement
-	self._change_move_animation()
 	
 	_velocity = move_and_slide(_velocity, Vector2.UP)
-	
 	# Prevent player go out of viewport
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
 	
+	# animation for basic movement
+	self._change_move_animation()
 	# handle attack
 	self._handle_attack()
 
