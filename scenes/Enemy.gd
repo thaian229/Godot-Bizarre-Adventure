@@ -6,11 +6,13 @@ signal die
 
 export(int, 0, 200) var speed := 30
 export(int, 0, 500) var gravity := 200
+export(int, 1, 5) var base_hp := 1
 
 var is_dead := false
 
 var _direction := Vector2.ZERO
 var _velocity := Vector2.ZERO
+var _hp := 1
 
 onready var animation := $AnimatedSprite as AnimatedSprite
 onready var ground_check := $RayCast2D as RayCast2D
@@ -22,6 +24,9 @@ onready var screen_size := get_viewport_rect().size
 func _ready():
 	_direction.x = -1
 	ground_check.position.x = -abs(ground_check.position.x)
+	
+	# init run-time stat
+	_hp = base_hp
 
 
 func _physics_process(delta: float) -> void:
@@ -45,6 +50,14 @@ func _update_move(delta: float) -> void:
 	
 	animation.flip_h = _direction.x < 0
 	animation.play("walk")
+
+
+func take_damage(amount: int) -> void:
+	if (amount <= 0):
+		return
+	_hp -= amount
+	if _hp <= 0:
+		self.dead()
 
 
 func dead() -> void:

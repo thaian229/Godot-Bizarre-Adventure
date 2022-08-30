@@ -5,6 +5,7 @@ extends Area2D
 
 export(int, 0, 1000) var move_speed := 120
 export(int, 0, 600) var attack_range := 320
+export(int, 1, 3) var attack_damage := 1
 
 var _velocity := Vector2.ZERO
 var _flipped := false
@@ -36,7 +37,8 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_Slash_body_entered(body: Node):
 	# handle enemy collide
 	if body.is_in_group("enemy"):
-		body.dead()
+		var enemy: Enemy = body as Enemy
+		enemy.take_damage(attack_damage)
 	call_deferred("queue_free")
 
 
