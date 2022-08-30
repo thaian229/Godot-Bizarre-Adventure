@@ -96,6 +96,7 @@ animations = [ {
 extents = Vector2( 7.5, 11 )
 
 [node name="Player" type="KinematicBody2D"]
+z_index = 1
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true

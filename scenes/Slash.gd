@@ -33,7 +33,10 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 
-func _on_Slash_body_entered(_body: Node):
+func _on_Slash_body_entered(body: Node):
+	# handle enemy collide
+	if body.is_in_group("enemy"):
+		body.dead()
 	call_deferred("queue_free")
 
 

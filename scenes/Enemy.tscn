@@ -1,7 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://sprites/characters.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Enemy.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 704, 64, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -21,6 +25,11 @@ region = Rect2( 96, 64, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
+"frames": [ SubResource( 7 ) ],
+"loop": false,
+"name": "dead",
+"speed": 0.0
+}, {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "walk",
@@ -30,7 +39,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 9, 11.5 )
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D" groups=["enemy"]]
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -38,7 +47,7 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
-animation = "walk"
+animation = "dead"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 4.5 )
@@ -48,3 +57,9 @@ shape = SubResource( 6 )
 position = Vector2( 8, 10 )
 enabled = true
 cast_to = Vector2( 0, 10 )
+
+[node name="DecayTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="DecayTimer" to="." method="_on_DecayTimer_timeout"]

@@ -53,7 +53,6 @@ func _move_update() -> void:
 		muzzle.position.x = +abs(muzzle.position.x)
 	
 	_velocity.x = _direction.x * speed
-	return
 
 
 func _jump_update(delta: float) -> void:
@@ -61,7 +60,6 @@ func _jump_update(delta: float) -> void:
 		_velocity.y = -jump_speed
 	
 	_velocity.y += gravity * delta
-	return
 
 
 func _change_move_animation() -> void:
@@ -85,8 +83,6 @@ func _change_move_animation() -> void:
 		else:
 			animation.play("fall")
 
-	return
-
 
 func _handle_attack() -> void:
 	if Input.is_action_just_pressed("attack") and not _attacking:
@@ -98,5 +94,4 @@ func _handle_attack() -> void:
 		slash.set_direction(animation.flip_h)
 		slash.position = muzzle.global_position
 		get_tree().root.add_child(slash)
-	return
 
