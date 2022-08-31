@@ -138,7 +138,8 @@ position = Vector2( 20, 5 )
 wait_time = 2.0
 one_shot = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="MainCamera" type="Camera2D" parent="."]
+unique_name_in_owner = true
 current = true
 process_mode = 0
 limit_left = 0

@@ -7,6 +7,7 @@ signal die
 export(int, 0, 200) var speed := 30
 export(int, 0, 500) var gravity := 200
 export(int, 1, 5) var base_hp := 1
+export(Vector2) var size := Vector2(1, 1)
 
 var is_dead := false
 
@@ -27,6 +28,7 @@ func _ready():
 	
 	# init run-time stat
 	_hp = base_hp
+	self.scale = size
 
 
 func _physics_process(delta: float) -> void:
@@ -73,3 +75,6 @@ func dead() -> void:
 	emit_signal("die")
 	# schedule destroy
 	death_timer.start()
+	# if big, shake screen
+	if self.scale > Vector2(1, 1):
+		get_node("%ScreenShake").shake_screen(1, 10, 100)
