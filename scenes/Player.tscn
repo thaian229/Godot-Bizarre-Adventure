@@ -116,7 +116,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 7.5, 11 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=["player"]]
 z_index = 1
 script = ExtResource( 2 )
 __meta__ = {
@@ -138,6 +138,10 @@ position = Vector2( 20, 5 )
 wait_time = 2.0
 one_shot = true
 
+[node name="PowerUpTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [node name="MainCamera" type="Camera2D" parent="."]
 unique_name_in_owner = true
 current = true
@@ -151,3 +155,4 @@ editor_draw_limits = true
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="DeadTimer" to="." method="_on_DeadTimer_timeout"]
+[connection signal="timeout" from="PowerUpTimer" to="." method="_on_PowerUpTimer_timeout"]

@@ -7,6 +7,9 @@ extends KinematicBody2D
 export(int, 0, 200) var speed := 60
 export(int, 0, 300) var jump_speed := 120
 export(int, 0, 500) var gravity := 200
+export(int, 1, 5) var attack_damage := 1 setget set_attack_damage
+func set_attack_damage(amount: int) -> void:
+	attack_damage = amount if amount >= 1 and amount <= 5 else 1
 
 export(PackedScene) var slash_prefab = preload("res://scenes/Slash.tscn")
 
@@ -22,6 +25,7 @@ onready var animation := $AnimatedSprite as AnimatedSprite
 onready var muzzle := $ProjectilePosition2D as Position2D
 onready var collider := $CollisionShape2D as CollisionShape2D
 onready var dead_timer := $DeadTimer as Timer
+onready var power_up_timer := $PowerUpTimer as Timer
 
 func _physics_process(delta: float):
 	# if dead, ignore
@@ -97,13 +101,14 @@ func _change_move_animation() -> void:
 
 func _handle_attack() -> void:
 	if Input.is_action_just_pressed("attack") and not _attacking:
-		var slash: Slash = slash_prefab.instance()
+		var slash := slash_prefab.instance() as Slash
 		if not slash:
 			return
 		_attacking = true
 		animation.play("attack")
 		slash.set_direction(animation.flip_h)
 		slash.position = muzzle.global_position
+		slash.attack_damage = self.attack_damage
 		get_tree().root.add_child(slash)
 
 
@@ -122,3 +127,12 @@ func _on_DeadTimer_timeout():
 	var err = get_tree().change_scene("res://scenes/TitleScene.tscn")
 	if err != OK:
 		print("cannot load scene")
+
+
+func power_up(amount: int) -> void:
+	attack_damage = amount
+	power_up_timer.start()
+
+
+func _on_PowerUpTimer_timeout():
+	attack_damage = 1

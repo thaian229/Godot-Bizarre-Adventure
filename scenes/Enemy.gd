@@ -35,6 +35,12 @@ func _physics_process(delta: float) -> void:
 	# update move
 	self._update_move(delta)
 	_velocity = move_and_slide(_velocity, Vector2.UP)
+	# handle slide:
+	for index in range(get_slide_count()):
+		var body: Node = get_slide_collision(index).collider as Node
+		if body.is_in_group("player"):
+			body.dead()
+			return
 
 
 func _on_DecayTimer_timeout():
